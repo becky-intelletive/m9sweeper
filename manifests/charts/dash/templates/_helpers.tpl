@@ -25,6 +25,14 @@ If release name contains chart name it will be used as a full name.
 {{- end -}}
 
 {{/*
+Build the grafana dashboard name based on the full name
+*/}}
+{{- define "dash.grafana-fullname" -}}
+{{- $fullname := include "dash.fullname" . | trunc 55 }}
+{{- printf "%s-%s" $fullname "grafana" -}}
+{{- end -}}
+
+{{/*
 Create chart name and version as used by the chart label.
 */}}
 {{- define "dash.chart" -}}

@@ -28,7 +28,6 @@ falco:
 
 nameOverride: ""
 fullnameOverride: ""
-jwtSecret: ""
 
 resources:
   limits:
@@ -47,7 +46,6 @@ prometheusOperator:
 
 grafana:
   enabled: true
-  extraLabels: {}
   dashboardName: "custom-dash-1"
 
 replicaCount: 1
