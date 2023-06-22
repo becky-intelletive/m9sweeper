@@ -16,31 +16,31 @@ export class M9sweeperCronJobService {
     ) {}
 
     /**
-     * Recompile M9sweeper Metrics every 5 minutes for Prometheus metrics
+     * Recompile M9sweeper Metrics every 30s for Prometheus metrics
      */
-    @Cron('0 */5 * * * *')
+    @Cron('*/30 * * * * *')
     async updateExceptionAndImageMetrics() {
         const activeExceptions = await this.exceptionsService.getAllActiveExceptions();
         const activeExceptionsCount = activeExceptions ? activeExceptions.length : 0;
         this.prometheusService.activeExceptions.set(activeExceptionsCount);
-        this.loggerService.log({label: `Total number of active exceptions: ${activeExceptionsCount}`});
+        // this.loggerService.log({label: `Total number of active exceptions: ${activeExceptionsCount}`});
 
         const exceptionsExpireTomorrow = await this.exceptionsService.getExceptionsExpireTomorrow(M9sweeperCronJobService.getTomorrowDate());
         const exceptionsExpireTomorrowCount =exceptionsExpireTomorrow ? exceptionsExpireTomorrow.length : 0;
         this.prometheusService.expiringExceptionsTomorrow.set(exceptionsExpireTomorrowCount);
-        this.loggerService.log({label: `Total number of active exceptions expiring tomorrow: ${exceptionsExpireTomorrowCount}`});
+        // this.loggerService.log({label: `Total number of active exceptions expiring tomorrow: ${exceptionsExpireTomorrowCount}`});
 
         const totalCompliantImages = await this.imageService.getAllImagesByCompliance('Compliant');
         this.prometheusService.numOfCompliantImages.set(+totalCompliantImages.shift().count);
-        this.loggerService.log({label: `Total number of compliant images: ${+totalCompliantImages.shift().count}`});
+        // this.loggerService.log({label: `Total number of compliant images: ${+totalCompliantImages.shift().count}`});
 
         const totalNonCompliantImages = await this.imageService.getAllImagesByCompliance('Non-compliant');
         this.prometheusService.numOfNonCompliantImages.set(+totalNonCompliantImages.shift().count);
-        this.loggerService.log({label: `Total number of non-compliant images: ${+totalNonCompliantImages.shift().count}`});
+        // this.loggerService.log({label: `Total number of non-compliant images: ${+totalNonCompliantImages.shift().count}`});
 
         const totalUnScannedImages = await this.imageService.getAllImagesByCompliance(null);
         this.prometheusService.numOfUnScannedImages.set(+totalUnScannedImages.shift().count);
-        this.loggerService.log({label: `Total number of unscanned images: ${+totalUnScannedImages.shift().count}`});
+        // this.loggerService.log({label: `Total number of unscanned images: ${+totalUnScannedImages.shift().count}`});
 
         for (const exception of activeExceptions) {
             this.prometheusService.activeException
