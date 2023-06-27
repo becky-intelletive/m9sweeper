@@ -30,7 +30,7 @@ export class AuthGuard implements CanActivate {
       map((response: IServerResponse<{ loggedIn: boolean }>) => {
         // authentication succeeded
         if (response.data?.loggedIn) {
-          this.alertService.danger('Authentication failed!');
+          this.loaderService.stop('auth-guard-loader');
           return true;
         }
 
