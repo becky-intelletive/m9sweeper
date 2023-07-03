@@ -1,3 +1,8 @@
+# M9sweeper Documentation
+M9sweeper uses Docsy to host its documentation.
+
+View compiled documentation here: https://m9sweeper.io/docs/latest/docs/
+
 # Docsy Example
 
 [Docsy][] is a [Hugo theme module][] for technical documentation sites, providing easy
