@@ -10,7 +10,7 @@
   </div>
 </div>
 <mat-dialog-content>
-  <div class="scrollable-table-card">
+  <div class="component-with-scrollable-table">
     <div class="table-wrapper" id="event-details-wrapper">
       <mat-table [dataSource]="eventDetails" id="event-details-table">
         <ng-container matColumnDef="title">
@@ -40,7 +40,7 @@
 
   <h3 id="related-events-title">Related Events</h3>
 
-  <div class="scrollable-table-card">
+  <div class="component-with-scrollable-table">
     <app-falco-related-events-table
       [clusterId]="data.clusterId"
       [currentEventLogId]="data.id"

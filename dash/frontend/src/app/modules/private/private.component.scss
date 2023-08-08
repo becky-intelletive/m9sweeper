@@ -62,10 +62,13 @@ mat-toolbar.fixed {
     color: #2b5797;
   }
 }
-.main-content{
-  margin-top: 50px;
+
+.main-content {
   overflow-x: hidden;
   //height: 100%;
+  flex: 1;
+  height: auto;
+  margin-top: 0 !important;
 }
 
 .nights-stay-icon {
