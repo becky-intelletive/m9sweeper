@@ -6,7 +6,6 @@ html, body { height: 100%;} // login page requires 100%
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @import '@angular/material/theming';
-@import './app/modules/private/private.component.theme';
 @import 'flexboxgrid/css/flexboxgrid.min.css';
 @import 'codemirror/lib/codemirror';
 @import 'codemirror/theme/material';
@@ -120,15 +119,10 @@ mat-card {
   @include app-root-theme($theme);
 }
 
-@mixin custom-toolbar-light-theme($theme) {
-  @include toolbar-light-theme($theme);
-}
-
 
 .default-theme {
   @include angular-material-theme($ms-default-theme);
   @include custom-components-theme($ms-default-theme);
-  @include custom-toolbar-light-theme($ms-default-theme);
   @include snackbar-theme($ms-default-theme);
 }
 
