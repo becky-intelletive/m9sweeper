@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="page-card">
-      <div class="row w-100">
+      <div class="row w-xs-100">
         <div class="col-xs-12 col-lg-6 card-col">
           <mat-card appearance="outlined" style="min-width: 400px;">
             <mat-card-header>
@@ -70,13 +70,13 @@
                           <mat-label>Who to Notify</mat-label>
                         </div>
                         <div class="row page-card-left-align section-sublevel-2">
-                          <div class="col-xs-12 w-100">
-                            <mat-radio-group class="display-flex flex-column" aria-label="SelectPerson" formControlName="whoToNotify">
+                          <div class="col-xs-12 w-xs-100">
+                            <mat-radio-group class="display-xs-flex flex-direction-xs-col" aria-label="SelectPerson" formControlName="whoToNotify">
                               <mat-radio-button (change)="notEnableSpecificEmailSubLevelcheckbox($event)" value="allAdmin">All Admins</mat-radio-button>
                               <mat-radio-button (change)="enableSpecificEmailSubLevelcheckbox($event)" value="specificEmail">Specific Email List (comma separated)</mat-radio-button>
                             </mat-radio-group>
                           </div>
-                          <div class="col-xs-12 w-100">
+                          <div class="col-xs-12 w-xs-100">
                             <mat-form-field [style.display]="isSpecificEmailHidden? 'none' :'block'">
                               <textarea matInput formControlName="emailList"></textarea>
                             </mat-form-field>

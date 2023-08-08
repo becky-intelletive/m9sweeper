@@ -68,6 +68,14 @@ $classesToGenerate: (
       0: 0, 50: 50%, 75: 75%, 100: 100%,
     ),
   ),
+  width: (
+    abbreviation: 'w',
+    values: (
+      auto: auto, unset: unset,
+      fit: 'fit-content',
+      0: 0, 50: 50%, 75: 75%, 100: 100%,
+    ),
+  ),
   flex-direction: (
     abbreviation: 'flex-direction',
     values: (

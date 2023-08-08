@@ -2,13 +2,13 @@
 <div class="page-container">
   <div class="page-container-content">
     <div class="page-title-button-group-spacing row" id="clusterSummaryHeader">
-      <div class="col-md-6 col-xs-12 start-xs cluster-group-name display-flex">
+      <div class="col-md-6 col-xs-12 start-xs cluster-group-name display-xs-flex">
         {{ clusterGroupName }}
         <button  [allowedRoles]="['ADMIN', 'SUPER_ADMIN']" mat-icon-button  (click)="editClusterGroupNameDialog()">
           <mat-icon class="edit-cluster-group-icon">create</mat-icon>
         </button>
       </div>
-      <div class="col-md-6 col-xs-12 start-xs end-md display-flex flex-direction-xs-col flex-direction-md-row align-items-center">
+      <div class="col-md-6 col-xs-12 start-xs end-md display-xs-flex flex-direction-xs-col flex-direction-md-row align-items-xs-center">
         <button
           class="margin-right-10 mb-xs-2 mb-md-0"
           [allowedRoles]="['ADMIN', 'SUPER_ADMIN']"
@@ -161,7 +161,7 @@
   <div class="row margin-bottom-20">
     <div class="cluster-element margin-bottom-6 no-padding pointer col-xs-12 col-md-6 col-lg-4"
          *ngFor="let cluster of clustersList; index as i">
-      <mat-card (click)="showCluster(cluster)" class="w-100"
+      <mat-card (click)="showCluster(cluster)" class="w-xs-100"
                 [ngClass]="{ 'rescan': dateInMil - +cluster.lastScannedAt > 4500000 }">
         <div class="row">
           <div class="col-xs-1 cluster-icon">

@@ -75,7 +75,7 @@
       </div>
 
       <div class="row">
-        <div class="col-xs-12 end-xs display-flex">
+        <div class="col-xs-12 end-xs display-xs-flex">
           <button [disabled]="!createClusterForm.valid" mat-raised-button color="primary"
                   matStepperNext>Next Step
           </button>
@@ -120,10 +120,10 @@
     </div>
     <br>
     <div class="row">
-      <div class="col-xs-12 col-sm-6 center-xs start-sm display-flex mb-half-rem">
+      <div class="col-xs-12 col-sm-6 center-xs start-sm display-xs-flex mb-half-rem">
         <button mat-raised-button color="accent" matStepperPrevious>Prev Step</button>
       </div>
-      <div class="col-xs-12 col-sm-6 center-xs end-sm display-flex">
+      <div class="col-xs-12 col-sm-6 center-xs end-sm display-xs-flex">
         <button mat-raised-button
                 color="primary"
                 [disabled]="serviceAccountForm.invalid"
@@ -158,10 +158,10 @@
       </ng-template>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-sm-6 center-xs start-sm display-flex mb-half-rem">
+      <div class="col-xs-12 col-sm-6 center-xs start-sm display-xs-flex mb-half-rem">
         <button mat-raised-button color="accent" matStepperPrevious>Prev Step</button>
       </div>
-      <div class="col-xs-12 col-sm-6 center-xs end-sm display-flex">
+      <div class="col-xs-12 col-sm-6 center-xs end-sm display-xs-flex">
         <button mat-raised-button color="primary" [disabled]="submitting" (click)="onSubmit(stepper)">Next Step</button>
       </div>
     </div>

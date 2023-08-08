@@ -16,7 +16,7 @@
     </div>
 
     <div>
-      <textarea matInput [cdkTextareaAutosize]="true" #run class="code-snippet w-100 modal-content-left-align-no-margin modal-content-no-right-margin margin-top-1em" readonly>
+      <textarea matInput [cdkTextareaAutosize]="true" #run class="code-snippet w-xs-100 modal-content-left-align-no-margin modal-content-no-right-margin margin-top-1em" readonly>
 helm repo add gatekeeper https://open-policy-agent.github.io/gatekeeper/charts
 helm install gatekeeper/gatekeeper --name-template=gatekeeper \
     --namespace gatekeeper-system \
