@@ -140,7 +140,7 @@
               <div>
                 <div *ngIf="format === 'table'; then displayInTable"></div>
                 <ng-template #displayInTable>
-                  <div [innerHTML]="raw | tablify" class="table-format"></div>
+                  <div [innerHTML]="raw | tablify"></div>
                 </ng-template>
               </div>
             </div>

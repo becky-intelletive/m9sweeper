@@ -1,8 +1,8 @@
 @use '@angular/material' as mat;
 
-.image-id-tooltip {
-  word-break: break-all !important;
-  white-space: normal !important;
+#dockerImageID {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #scannerError {
