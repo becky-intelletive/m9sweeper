@@ -146,72 +146,7 @@ button {
 }
 
 /** Generics that should be replaced with classes from generic-styles.scss */
-.no-padding {
-  padding: 0!important;
-}
-
-.margin-top-10{
-  margin-top: 10px;
-}
-
-.padding-top-10{
-  padding-top: 10px;
-}
-.padding-top-15 {
-  padding-top:15px;
-  padding-left: 0;
-}
-.padding-left-3 {
-  padding-left: 3%;
-}
-
-.negative-margin-bottom-20{
-  margin-bottom: -20px;
-}
-
-.margin-right-10{
-  margin-right: 10px;
-}
-
-.text-align-center {
-  text-align: center;
-}
-
-.text-align-right{
-  text-align: right;
-}
-
-.margin-bottom-20{
-  margin-bottom: 20px;
-}
-
-.margin-bottom-2{
-  margin-bottom: 2px;
-}
-
-.negative-margin-bottom-8 {
-  margin-bottom: -8px;
-}
-
-.font-size-20{
-  font-size: 20px;
-}
-
-.margin-left-7{
-  margin-left: 7px;
-}
-
-.justify-content-center{
-  justify-content: center;
-}
-
-.justify-content-right {
-  justify-content: right!important;
-}
-
-.margin-bottom-6{
-  margin-bottom: 6px;
-}
+@import "styles-to-be-genericized.scss";
 /** end generic styles */
 
 // tablify styles
@@ -245,6 +180,12 @@ app-private {
   display: flex;
   flex-direction: column;
   height: 100%
+}
+// used for cluster details and org settings
+.main-container {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
 // Org setting pages uses app-sub-navigation for titles and buttons
@@ -344,7 +285,6 @@ app-private {
   }
 }
 
-
 // cluster details pages - page, card, title, button
 .page-title-div{
   display: flex;
@@ -392,22 +332,6 @@ app-private {
   }
 }
 
-.pointer {
-  cursor: pointer;
-}
-
-.text-style-red {
-  color: red;
-}
-.text-style-orange {
-  color: orange;
-}
-.text-style-green {
-  color: green;
-}
-.full-width {
-  width: 100%;
-}
 .code-snippet {
   width: -webkit-fill-available;
   max-height: 400px;
@@ -426,18 +350,8 @@ mat-form-field {
   width: 100%;
 }
 
-.padding-top-bot-16 {
-  padding-top: 16px;
-  padding-bottom: 16px;
-}
-.next-button {
-  display: flex;
-  justify-content: flex-end;
-}
-
 
 // Styles for the pages contains table
-
 .page-table {
   // flex: 1;
   overflow: auto;
@@ -477,14 +391,7 @@ mat-form-field {
   }
 }
 
-.main-container{
-  height:100%;
-  display: flex;
-  flex-display: row;
-}
-
 // CSS for Report pages [Start]
-
 .title-font {
   font: 500 20px/32px Roboto,Helvetica Neue,sans-serif;
 }
@@ -536,126 +443,7 @@ mat-form-field {
 .fix-margin {
   margin-left: 18px;
 }
-
 // CSS for Report pages [END]
-
-// CSS for left nav [begin]
-// LARGE SCREEN: width >800px
-
-
-span.plus-button{
-
-}
-span.add-cluster-group{
-  height: 35px;
-}
-div.cluster-item { // left nav 2)
-  //height: 35px;
-  height: fit-content;
-  flex: 4;
-  a{
-    font-size: 14px;
-    height:60px;
-    &:hover {
-      background-color: #e3dede;
-    }
-  }
-}
-span.cluster-group-name-full {
-  padding-left: 10px;
-  vertical-align: text-bottom;
-}
-
-div.cluster-group-name {
-  text-decoration: none;
-  font-size: 26px;
-  line-height: 2.5;
-}
-div.organization-settings { // left nav 3)
-  flex-direction: row;
-}
-div.expanded-item {
-  display: flex;
-  flex-direction: row;
-  // background-color: green;
-
-  &:hover {
-    background-color: #F2F2F2;
-  }
-}
-div.collapse-item {
-  flex-direction: column;
-  display: none;
-  &:hover {
-    background-color: #F2F2F2;
-  }
-}
-div.cluster-dashboard {
-  //width: calc(100% - 300px);
-  flex-direction: column;
-  background-color: #e0e0e0;
-}
-
-div.cluster-dashboard.responsive {
-  //width: calc(100% - 65px);
-  flex-direction: column;
-}
-
-// CSS for left nav [end]
-
-.padding-bottom-5px {
-  padding-bottom: 5px;
-}
-
-.display-flex {
-  display: flex !important;
-}
-
-.flex-column {
-  flex-direction: column;
-}
-
-.action-button-row {
-  display: flex;
-  justify-content: end;
-  align-content: center;
-  margin-right: 5px;
-}
-
-.light-border {
-  border: rgba(0, 0, 0, 0.12) solid 1px;
-}
-
-.padding-10 {
-  padding: 10px!important;
-}
-
-.padding-top-4 {
-  padding-top: 4px;
-}
-
-.padding-left-10 {
-  padding-left: 10px;
-}
-
-.w-100 {
-  width: 100%;
-}
-
-.h-100 {
-  height: 100%;
-}
-
-.align-items-center {
-  align-items: center!important;
-}
-.align-self-center {
-  align-self: center !important;
-}
-
-.align-items-stretch {
-  align-items: stretch;
-}
 
 /** Hides the increment/decrement arrows on number inputs */
 input[type=number].no-spin-button {
@@ -671,39 +459,6 @@ input[type=number].no-spin-button {
 
 app-datepicker-component {
   margin-left: 20px;
-}
-
-.mt-half-rem {
-  margin-top: 0.5rem;
-}
-
-.mb-half-rem {
-  margin-bottom: 0.5rem;
-}
-
-.mb-1-rem {
-  margin-bottom: 1rem;
-}
-
-.my-0 {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.min-width-8 {
-  min-width: 8rem;
-}
-
-.min-width-4 {
-  min-width: 4rem;
-}
-
-.min-width-3 {
-  min-width: 3rem;
-}
-
-.height-30 {
-  height: 30rem;
 }
 
 .ngx-charts .bar,

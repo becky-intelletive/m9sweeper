@@ -11,7 +11,7 @@
             <div class="page-card-title">Penetration Test Status:</div>
           </mat-card-header>
           <mat-card-content>
-            <h3 [ngClass]="penetrationTestStatusInvalid ? 'text-style-red' : 'text-style-green'">{{penetrationTestText}}</h3>
+            <h3 [ngStyle]="{'color': penetrationTestStatusInvalid ? 'red' : 'green'}">{{penetrationTestText}}</h3>
           </mat-card-content>
         </mat-card>
       </div>
