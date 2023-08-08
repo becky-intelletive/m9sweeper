@@ -163,41 +163,41 @@
                 </mat-cell>
               </ng-container>
               <ng-container matColumnDef="criticalIssues">
-                <mat-header-cell class="justify-content-center" *matHeaderCellDef > Critical Issues</mat-header-cell>
+                <mat-header-cell class="justify-content-xs-center" *matHeaderCellDef > Critical Issues</mat-header-cell>
                 <mat-cell *matCellDef="let totalSeverity">
-                  <a class="justify-content-center" [routerLink]="['/private', 'clusters', this.clusterId, 'kubernetes-namespaces', totalSeverity.namespace, 'pods']">
+                  <a class="justify-content-xs-center" [routerLink]="['/private', 'clusters', this.clusterId, 'kubernetes-namespaces', totalSeverity.namespace, 'pods']">
                     {{totalSeverity.criticalIssues ? totalSeverity.criticalIssues : 0}}
                   </a>
                 </mat-cell>>
               </ng-container>
               <ng-container matColumnDef="majorIssues">
-                <mat-header-cell class="justify-content-center" *matHeaderCellDef > Major Issues</mat-header-cell>
+                <mat-header-cell class="justify-content-xs-center" *matHeaderCellDef > Major Issues</mat-header-cell>
                 <mat-cell *matCellDef="let totalSeverity">
-                  <a class="justify-content-center" [routerLink]="['/private', 'clusters', this.clusterId, 'kubernetes-namespaces', totalSeverity.namespace, 'pods']">
+                  <a class="justify-content-xs-center" [routerLink]="['/private', 'clusters', this.clusterId, 'kubernetes-namespaces', totalSeverity.namespace, 'pods']">
                     {{totalSeverity.majorIssues ? totalSeverity.majorIssues : 0}}
                   </a>
                 </mat-cell>
               </ng-container>
               <ng-container matColumnDef="mediumIssues">
-                <mat-header-cell class="justify-content-center" *matHeaderCellDef>Medium Issues</mat-header-cell>>
+                <mat-header-cell class="justify-content-xs-center" *matHeaderCellDef>Medium Issues</mat-header-cell>>
                 <mat-cell *matCellDef="let totalSeverity">
-                  <a class="justify-content-center" [routerLink]="['/private', 'clusters', this.clusterId, 'kubernetes-namespaces', totalSeverity.namespace, 'pods']">
+                  <a class="justify-content-xs-center" [routerLink]="['/private', 'clusters', this.clusterId, 'kubernetes-namespaces', totalSeverity.namespace, 'pods']">
                     {{totalSeverity.mediumIssues ? totalSeverity.mediumIssues: 0}}
                   </a>
                 </mat-cell>
               </ng-container>
               <ng-container matColumnDef="lowIssues">
-                <mat-header-cell class="justify-content-center" *matHeaderCellDef > Low Issues</mat-header-cell>
+                <mat-header-cell class="justify-content-xs-center" *matHeaderCellDef > Low Issues</mat-header-cell>
                 <mat-cell *matCellDef="let totalSeverity">
-                  <a class="justify-content-center" [routerLink]="['/private', 'clusters', this.clusterId, 'kubernetes-namespaces', totalSeverity.namespace, 'pods']">
+                  <a class="justify-content-xs-center" [routerLink]="['/private', 'clusters', this.clusterId, 'kubernetes-namespaces', totalSeverity.namespace, 'pods']">
                     {{totalSeverity.lowIssues ? totalSeverity.lowIssues: 0}}
                   </a>
                 </mat-cell>
               </ng-container>
               <ng-container matColumnDef="negligibleIssues">
-                <mat-header-cell class="justify-content-center" *matHeaderCellDef >Negligible Issues</mat-header-cell>
+                <mat-header-cell class="justify-content-xs-center" *matHeaderCellDef >Negligible Issues</mat-header-cell>
                 <mat-cell *matCellDef="let totalSeverity">
-                  <a class="justify-content-center" [routerLink]="['/private', 'clusters', this.clusterId, 'kubernetes-namespaces', totalSeverity.namespace, 'pods']">
+                  <a class="justify-content-xs-center" [routerLink]="['/private', 'clusters', this.clusterId, 'kubernetes-namespaces', totalSeverity.namespace, 'pods']">
                     {{totalSeverity.negligibleIssues ? totalSeverity.negligibleIssues: 0}}
                   </a>
                 </mat-cell>
