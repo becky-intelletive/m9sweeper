@@ -29,6 +29,7 @@ import { ReportsModule } from './modules/reports/reports.module';
 import {AuditLogModule} from "./modules/audit-log/audit-log.module";
 import {FalcoModule} from './modules/falco/falco.module';
 import { MetricsModule } from './modules/metrics/metrics.module';
+import { GatekeeperModule } from './modules/gatekeeper/gatekeeper.module';
 
 
 export const routes: Routes = [
@@ -76,8 +77,12 @@ export const routes: Routes = [
           },
           {
             path: '/:clusterId/validation',
-            module: ClusterValidationModule
-          }
+            module: ClusterValidationModule,
+          },
+          {
+            path: '/:clusterId/gatekeeper',
+            module: GatekeeperModule,
+          },
         ]
       },
       {

@@ -4,9 +4,8 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Gatekeeper')
 @ApiBearerAuth('jwt-auth')
-@Controller(':clusterId/gatekeeper')
+@Controller('constraint-templates')
 @UseInterceptors(ResponseTransformerInterceptor)
-export class GatekeeperController {
-  
+export class GatekeeperConstraintTemplateController {
 
 }

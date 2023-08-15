@@ -5,8 +5,6 @@ import {ClusterService} from './services/cluster.service';
 import { KubernetesClusterService } from '../command-line/services/kubernetes-cluster.service';
 import {KubernetesApiService} from "../command-line/services/kubernetes-api.service";
 import {ExceptionBlockService} from "../command-line/services/exception-block.service";
-import { GatekeeperController } from './controllers/gatekeeper.controller';
-import { GatekeeperService } from './services/gatekeeper.service';
 
 @Global()
 @Module({
@@ -14,7 +12,6 @@ import { GatekeeperService } from './services/gatekeeper.service';
     ClusterDao,
     ClusterService,
     ExceptionBlockService,
-    GatekeeperService,
     KubernetesClusterService,
     KubernetesApiService,
   ],
@@ -22,13 +19,11 @@ import { GatekeeperService } from './services/gatekeeper.service';
     ClusterDao,
     ClusterService,
     ExceptionBlockService,
-    GatekeeperService,
     KubernetesClusterService,
     KubernetesApiService,
   ],
   controllers: [
     ClusterController,
-    GatekeeperController,
   ]
 })
 export class ClusterModule {}
