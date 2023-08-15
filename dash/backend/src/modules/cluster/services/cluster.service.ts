@@ -50,6 +50,15 @@ export class ClusterService {
       private logger: MineLoggerService,
   ) {}
 
+  public async getKubeConfig(clusterId: number): Promise<KubeConfig> {
+    const kubeConfig: KubeConfig = new KubeConfig();
+    const cluster: ClusterDto = await this.clusterDao.getClusterById(+clusterId);
+    const kubeConfigString = Buffer.from(cluster.kubeConfig, 'base64').toString();
+    kubeConfig.loadFromString(kubeConfigString);
+    kubeConfig.setCurrentContext(cluster.context);
+    return kubeConfig;
+  }
+
   async createCluster(cluster: ClusterDto, installWebhook: boolean, serviceAccountConfig?: string): Promise<ClusterDto> {
     const checkClusterName = await this.clusterDao.getClusterByClusterName({'c.deleted_at': null, 'c.name': cluster.name});
     if(checkClusterName && checkClusterName.length > 0){
@@ -297,15 +306,6 @@ export class ClusterService {
       return false;
     }
 
-  }
-
-  private async getKubeConfig(clusterId: number): Promise<KubeConfig> {
-    const kubeConfig: KubeConfig = new KubeConfig();
-    const cluster: ClusterDto = await this.clusterDao.getClusterById(+clusterId);
-    const kubeConfigString = Buffer.from(cluster.kubeConfig, 'base64').toString();
-    kubeConfig.loadFromString(kubeConfigString);
-    kubeConfig.setCurrentContext(cluster.context);
-    return kubeConfig;
   }
 
 

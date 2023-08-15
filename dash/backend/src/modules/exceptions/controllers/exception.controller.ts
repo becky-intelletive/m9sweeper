@@ -1,5 +1,16 @@
 import {ApiBearerAuth, ApiResponse, ApiTags} from '@nestjs/swagger';
-import {Body, Controller, Get, Inject, Param, Post, UseGuards, UseInterceptors, Delete, Put} from '@nestjs/common';
+import {
+    Body,
+    Controller,
+    Get,
+    Inject,
+    Param,
+    Post,
+    UseGuards,
+    UseInterceptors,
+    Delete,
+    Put
+} from '@nestjs/common';
 import {ResponseTransformerInterceptor} from '../../../interceptors/response-transformer.interceptor';
 import {UserProfileDto} from '../../user/dto/user-profile-dto';
 import {ExceptionsService} from '../services/exceptions.service';
@@ -22,9 +33,11 @@ import {AuditLogInterceptor} from '../../../interceptors/audit-log.interceptor';
 @Controller()
 @UseInterceptors(ResponseTransformerInterceptor)
 export class ExceptionController {
-    constructor(@Inject('LOGGED_IN_USER') private readonly _loggedInUser: UserProfileDto,
-                private readonly exceptionsService: ExceptionsService,
+    constructor(
+      @Inject('LOGGED_IN_USER') private readonly _loggedInUser: UserProfileDto,
+      private readonly exceptionsService: ExceptionsService,
     ) {}
+
     @Get()
     @AllowedAuthorityLevels(Authority.READ_ONLY, Authority.SUPER_ADMIN, Authority.ADMIN)
     @UseGuards(AuthGuard, AuthorityGuard)
