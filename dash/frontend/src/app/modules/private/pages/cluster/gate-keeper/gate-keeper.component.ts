@@ -10,6 +10,7 @@ import {AddConstraintDialogComponent} from '../add-constraint-dialog/add-constra
 import {MatPaginator} from '@angular/material/paginator';
 import {GateKeeperInstallWizardDialogComponent} from '../gate-keeper-install-wizard-dialog/gate-keeper-install-wizard-dialog.component';
 import {take} from 'rxjs/operators';
+import {GatekeeperService} from '../../../../../core/services/gatekeeper.service';
 
 @Component({
   selector: 'app-gate-keeper',
@@ -30,7 +31,9 @@ export class GateKeeperComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private dialog: MatDialog,
-    private gateKeeperService: GateKeeperService) {
+    private gateKeeperService: GateKeeperService,
+    private gatekeeperService: GatekeeperService,
+  ) {
     this.clusterId = +this.route.parent.snapshot.paramMap.get('id');
   }
 
@@ -95,6 +98,13 @@ export class GateKeeperComponent implements OnInit {
   }
 
   checkGatekeeperStatus(){
+    this.gatekeeperService.getGatekeeperInstallationInfo(this.clusterId)
+      .pipe(take(1))
+      .subscribe({
+        next: data => {
+          console.log(data);
+        }
+      });
     this.gateKeeperService.checkGatekeeperInstallationStatus(this.clusterId)
       .pipe(take(1))
       .subscribe({
