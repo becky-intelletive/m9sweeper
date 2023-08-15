@@ -43,4 +43,12 @@ export class GatekeeperService {
         shareReplay(),
       );
   }
+
+  deployGatekeeperConstraintTemplates(clusterId: number, templates: { name: string, template: string }[]): Observable<{ successfullyDeployed: string[], unsuccessfullyDeployed: string[] }> {
+    return this.httpClient.post<IServerResponse<{ successfullyDeployed: string[], unsuccessfullyDeployed: string[] }>>(`${this.buildBaseUrl(clusterId)}/constraint-templates`, templates)
+      .pipe(
+        map(response => response?.data),
+        shareReplay(),
+      );
+  }
 }
