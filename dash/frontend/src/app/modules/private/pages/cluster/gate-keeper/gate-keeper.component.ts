@@ -39,28 +39,24 @@ export class GateKeeperComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkGatekeeperStatus();
-    this.gateKeeperService.getGateKeeperConstraintTemplatesByCluster(this.clusterId)
-      .pipe(take(1))
-      .subscribe({
-        next: response => {
-          this.gatekeeperConstraintTemplates = response;
-        },
-        error: err => {
-          console.error(err);
-          this.gatekeeperConstraintTemplates = null;
-        }
-      });
     this.loadGateKeeperConstraintTemplates();
   }
 
   loadGateKeeperConstraintTemplates() {
-    this.gateKeeperService.getGateKeeperConstraintTemplatesByCluster(this.clusterId)
+    this.gatekeeperService.getGatekeeperConstraintTemplates(this.clusterId)
       .pipe(take(1))
       .subscribe({
         next: data => {
+          console.log(data);
+          this.gatekeeperConstraintTemplates = data;
           this.gatekeeperTemplates = new MatTableDataSource<IGateKeeperConstraintDetails>(data);
           this.gatekeeperTemplates.paginator = this.paginator;
-        }
+        },
+        error: err => {
+          this.gatekeeperConstraintTemplates = null;
+          this.gatekeeperTemplates = new MatTableDataSource<IGateKeeperConstraintDetails>([]);
+          this.gatekeeperTemplates.paginator = this.paginator;
+        },
       });
   }
 

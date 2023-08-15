@@ -11,14 +11,7 @@ import {IGatekeeperTemplate} from '../entities/IGatekeeperTemplate';
   providedIn: 'root'
 })
 export class GateKeeperService {
-  constructor(private httpClient: HttpClient) { }
-  getGateKeeperConstraintTemplatesByCluster(clusterId: number): Observable<IGateKeeperConstraintDetails[]> {
-    return this.httpClient.get<IServerResponse<IGateKeeperConstraintDetails[]>>(`/api/clusters/opa/${clusterId}/gatekeeper-constraint-templates`)
-      .pipe(
-        map(response => response?.data),
-        shareReplay()
-      );
-  }
+  constructor(private httpClient: HttpClient) {}
 
   gateKeeperTemplateByName(clusterId: number, templateName: string): Observable<IGatekeeperTemplate> {
     return this.httpClient.get<IServerResponse<IGatekeeperTemplate>>(`/api/clusters/opa/${clusterId}/gatekeeper-constraint-templates/${templateName}`)

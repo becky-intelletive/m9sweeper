@@ -209,17 +209,6 @@ export class ClusterController {
         return cluster;
     }
 
-    @Get('/opa/:clusterId/gatekeeper-constraint-templates')
-    @AllowedAuthorityLevels(Authority.SUPER_ADMIN, Authority.ADMIN, Authority.READ_ONLY)
-    @UseGuards(AuthGuard, AuthorityGuard)
-    @ApiResponse({
-        status: 201,
-        schema: DELETE_CLUSTER_RESPONSE_SCHEMA
-    })
-    async getOPAGateKeeperConstraintTemplates(@Param('clusterId') clusterId: number): Promise<DeprecatedGatekeeperTemplateDto[]> {
-        return this.clusterService.getOPAGateKeeperConstraintTemplates(clusterId);
-    }
-
     @Post('/opa/:clusterId/gatekeeper-constraint-templates')
     @AllowedAuthorityLevels(Authority.SUPER_ADMIN, Authority.ADMIN)
     @UseGuards(AuthGuard, AuthorityGuard)

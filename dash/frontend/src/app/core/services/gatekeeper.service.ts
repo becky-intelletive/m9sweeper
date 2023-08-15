@@ -21,4 +21,26 @@ export class GatekeeperService {
         shareReplay(),
       );
   }
+
+  getGatekeeperConstraintTemplateTemplates(clusterId: number): Observable<{
+    category: string,
+    templates: {
+      name: string,
+      template: any,  // Constraint Template Blueprint
+    }[],
+  }[]> {
+    return this.httpClient.get<IServerResponse<any>>(`${this.buildBaseUrl(clusterId)}/constraint-template-blueprints`)
+      .pipe(
+        map(response => response?.data),
+        shareReplay(),
+      );
+  }
+
+  getGatekeeperConstraintTemplates(clusterId: number): Observable<any> {
+    return this.httpClient.get<IServerResponse<any>>(`${this.buildBaseUrl(clusterId)}/constraint-templates`)
+      .pipe(
+        map(response => response?.data),
+        shareReplay(),
+      );
+  }
 }

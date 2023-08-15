@@ -8,6 +8,9 @@ import { AllowedAuthorityLevels } from '../../../decorators/allowed-authority-le
 import { Authority } from '../../user/enum/Authority';
 import { AuthGuard } from '../../../guards/auth.guard';
 import { AuthorityGuard } from '../../../guards/authority.guard';
+import { GatekeeperResponseStructure } from '../dto/gatekeeper-generic.dto';
+import { GatekeeperConstraintTemplateDto } from '../dto/gatekeeper-constraint-template.dto';
+import { V1APIService } from '@kubernetes/client-node';
 
 @ApiTags('Gatekeeper')
 @ApiBearerAuth('jwt-auth')
@@ -27,7 +30,10 @@ export class GatekeeperController {
     status: 201,
     schema: {}
   })
-  async getInstallationInfo(@Param('clusterId') clusterId) {
+  async getInstallationInfo(@Param('clusterId') clusterId): Promise<GatekeeperResponseStructure<{
+    constraints: GatekeeperConstraintTemplateDto[],
+    gatekeeperResource: Partial<V1APIService>,
+  }>> {
     return this.gatekeeperService.getInstallationInfo(clusterId);
   }
 }
