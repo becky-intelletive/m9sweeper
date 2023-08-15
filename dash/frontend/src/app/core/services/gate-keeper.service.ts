@@ -20,14 +20,6 @@ export class GateKeeperService {
       );
   }
 
-  checkGatekeeperInstallationStatus(clusterId: number): Observable<{status: boolean, message: string}> {
-    return this.httpClient.get<IServerResponse<{status: boolean, message: string}>>(`/api/clusters/opa/${clusterId}/gatekeeper/installation-status`)
-      .pipe(
-        map(response => response?.data),
-        shareReplay()
-      );
-  }
-
   gateKeeperTemplateByName(clusterId: number, templateName: string): Observable<IGatekeeperTemplate> {
     return this.httpClient.get<IServerResponse<IGatekeeperTemplate>>(`/api/clusters/opa/${clusterId}/gatekeeper-constraint-templates/${templateName}`)
       .pipe(

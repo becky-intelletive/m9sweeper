@@ -393,15 +393,4 @@ export class ClusterController {
         return this.clusterService.getNamespacesByCluster(clusterId);
     }
 
-    @Get('/opa/:clusterId/gatekeeper/installation-status')
-    @AllowedAuthorityLevels(Authority.SUPER_ADMIN, Authority.ADMIN, Authority.READ_ONLY)
-    @UseGuards(AuthGuard, AuthorityGuard)
-    @ApiResponse({
-        status: 201,
-        schema: DELETE_CLUSTER_RESPONSE_SCHEMA
-    })
-    async checkGatekeeperInstallationStatus(@Param('clusterId') clusterId: number): Promise<{status: boolean, message: string}> {
-        return this.clusterService.checkGatekeeperInstallationStatus(clusterId);
-    }
-
 }

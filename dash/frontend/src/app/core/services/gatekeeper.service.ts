@@ -15,7 +15,7 @@ export class GatekeeperService {
   }
 
   getGatekeeperInstallationInfo(clusterId: number): Observable<any> {
-    return this.httpClient.get<IServerResponse<any>>(`${this.buildBaseUrl}`)
+    return this.httpClient.get<IServerResponse<any>>(`${this.buildBaseUrl(clusterId)}`)
       .pipe(
         map(response => response?.data),
         shareReplay(),

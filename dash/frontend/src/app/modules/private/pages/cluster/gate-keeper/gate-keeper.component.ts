@@ -102,15 +102,11 @@ export class GateKeeperComponent implements OnInit {
       .pipe(take(1))
       .subscribe({
         next: data => {
-          console.log(data);
-        }
-      });
-    this.gateKeeperService.checkGatekeeperInstallationStatus(this.clusterId)
-      .pipe(take(1))
-      .subscribe({
-        next: data => {
           this.gatekeeperStatusLoaded = true;
-          this.gatekeeperInstallationStatus = data;
+          this.gatekeeperInstallationStatus = {
+            message: data.message,
+            status: data.status,
+          };
         }
       });
   }

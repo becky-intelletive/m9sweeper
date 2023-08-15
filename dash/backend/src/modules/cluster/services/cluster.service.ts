@@ -336,33 +336,6 @@ export class ClusterService {
     return dirStructure;
   }
 
-  async checkGatekeeperInstallationStatus(clusterId: number): Promise<{status: boolean, message: string, error: any}> {
-    const kubeConfig: KubeConfig = await this.getKubeConfig(clusterId);
-    const apiRegistration = kubeConfig.makeApiClient(ApiregistrationV1Api);
-    let installationStatus = false;
-    try {
-      const resource = await apiRegistration.readAPIService('v1beta1.templates.gatekeeper.sh');
-      this.logger.log({label: 'GateKeeper installation status', data: { clusterId, status: resource.body.status }}, 'ClusterService.checkGatekeeperInstallationStatus');
-      installationStatus = resource.body.status.conditions.length ? true : false;
-      if (installationStatus) {
-        const customObjectApi = kubeConfig.makeApiClient(CustomObjectsApi);
-        const templateListResponse = await customObjectApi.getClusterCustomObject('templates.gatekeeper.sh', 'v1beta1', 'constrainttemplates', '')
-        const templates: any[] = templateListResponse.body['items'];
-        if (templates.length) {
-          return {status: installationStatus, message: 'Setup', error: null};
-        } else {
-          return {status: installationStatus, message: 'Not Setup', error: null};
-        }
-      } else {
-        return {status: installationStatus, message: 'Not Installed', error: null};
-      }
-    }
-    catch(e) {
-      this.logger.error({label: 'Error checking GateKeeper installation status', data: { clusterId }}, e, 'ClusterService.checkGatekeeperInstallationStatus');
-      return {status: installationStatus, message: 'Not Installed', error: e.message};
-    }
-  }
-
   async getOPAGateKeeperConstraintTemplates(clusterId: number): Promise<DeprecatedGatekeeperTemplateDto[]> {
     await this.exceptionBlockService.copyGatekeeperTemplatesForCluster(clusterId);
     const kubeConfig: KubeConfig = await this.getKubeConfig(clusterId);
