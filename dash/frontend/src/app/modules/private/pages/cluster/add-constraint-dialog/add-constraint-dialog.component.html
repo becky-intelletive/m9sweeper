@@ -2,10 +2,10 @@
   <button mat-icon-button *ngIf="isHandsetOrXS" (click)="toggleSidenav()">
     <mat-icon>menu</mat-icon>
   </button>
-  <h3>Constraint Templates</h3>
+  <h3 [ngClass]="isHandsetOrXS ? 'px-xs-0' : 'px-xs-2'">Constraint Templates</h3>
 </mat-toolbar>
 <mat-dialog-content class="modal-container-margin no-padding">
-  <mat-drawer-container class="example-container" autosize>
+  <mat-drawer-container class="constraint-template-container" autosize>
     <mat-drawer
       #sidenav
       class="sidenav"
