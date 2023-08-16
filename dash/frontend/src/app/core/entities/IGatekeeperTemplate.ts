@@ -30,10 +30,3 @@ export interface IGatekeeperTemplate {
   constraintsCount?: number;
   enforced?: number;
 }
-
-export interface IGSelectedTemplate {
-  selectedTemplate: IGatekeeperTemplate;
-  selectedTemplateName: string;
-  selectedTopDir?: string;
-  displayTemplateContent?: boolean;
-}

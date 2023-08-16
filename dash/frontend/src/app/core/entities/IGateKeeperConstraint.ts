@@ -1,3 +1,6 @@
+/**
+ * @deprecated - may need to create a new interface if one doesn't already exist
+ */
 export interface IGateKeeperConstraint {
   name?: string;
   uid?: string;
@@ -5,6 +8,9 @@ export interface IGateKeeperConstraint {
   regos?: string[];
 }
 
+/**
+ * @deprecated - may need to create a new interface if one doesn't already exist
+ */
 export interface IGatekeeperConstraintMetadataAnnotations {
   mode?: string;
   description?: string;

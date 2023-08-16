@@ -10,13 +10,20 @@ import {
 import {MatSidenav} from '@angular/material/sidenav';
 import {GateKeeperService} from '../../../../../core/services/gate-keeper.service';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
-import {IGSelectedTemplate} from '../../../../../core/entities/IGatekeeperTemplate';
 import {AlertService} from 'src/app/core/services/alert.service';
 import {AddCustomConstraintTemplateComponent} from '../add-custom-constraint-template/add-custom-constraint-template.component';
 import {MatCheckbox, MatCheckboxChange} from '@angular/material/checkbox';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+
+interface IGSelectedTemplate {
+  selectedTemplate: IGatekeeperConstraintTemplate;
+  selectedTemplateName: string;
+  selectedTopDir?: string;
+  displayTemplateContent?: boolean;
+  error?: string;
+}
 
 @Component({
   selector: 'app-add-constraint-dialog',
@@ -87,19 +94,20 @@ export class AddConstraintDialogComponent implements OnInit, OnDestroy {
 
   deployMultipleGateKeeperTemplates() {
     const templates = this.currentlySelectedTemplates.map(t => `${t.selectedTopDir}/${t.selectedTemplateName}`);
-    this.gateKeeperService.deployMultipleGateKeeperTemplates(this.clusterId, templates)
-      .pipe(take(1))
-      .subscribe({
-        next: response => {
-          if (response.data.statusCode === 200) {
-            this.alertService.success(response.data.message);
-          }
-          else {
-            this.alertService.danger(response.data.message);
-          }
-        }
-      });
-    this.dialogRef.close({reloadData: true});
+    console.log(this.currentlySelectedTemplates);
+    // this.gateKeeperService.deployMultipleGateKeeperTemplates(this.clusterId, templates)
+    //   .pipe(take(1))
+    //   .subscribe({
+    //     next: response => {
+    //       if (response.data.statusCode === 200) {
+    //         this.alertService.success(response.data.message);
+    //       }
+    //       else {
+    //         this.alertService.danger(response.data.message);
+    //       }
+    //     }
+    //   });
+    // this.dialogRef.close({reloadData: true});
   }
 
 
