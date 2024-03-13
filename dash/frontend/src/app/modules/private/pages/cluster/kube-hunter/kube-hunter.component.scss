@@ -24,7 +24,6 @@
 #past-audits-table {
   mat-card-header {
     margin-bottom: 1em;
-
     .run-audit-button {
       justify-content: flex-end;
       display: flex;
@@ -45,4 +44,10 @@
       min-width: 125px;
     }
   }
+}
+
+.mat-mdc-card-header {
+  display: flex;
+  padding: 19px 16px 0 !important;
+  margin-bottom: 3px !important;
 }
